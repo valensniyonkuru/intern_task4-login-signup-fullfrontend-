@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Supplier List</title>
+</head>
+<body>
+    <div style="max-width: 800px; margin: 40px auto; padding: 20px; background-color: #f9f9f9; border: 1px solid #ccc; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+        <h2 style="margin-top: 0;">Supplier List</h2>
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+            <a href="/admin/suppliers/new" style="background-color: #4CAF50; color: #fff; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; text-decoration: none; text-align: center;">Add New Supplier</a>
+            <a href="/admin-page" style="background-color: #008CBA; color: #fff; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; text-decoration: none; display: inline-block; text-align: center;">Back to Admin Dashboard</a>
+        </div>
+        <table style="width: 100%; border-collapse: collapse; margin-top: 20px;">
+            <thead>
+                <tr>
+                    <th style="border: 1px solid #ddd; padding: 10px; text-align: left; background-color: #f0f0f0;">ID</th>
+                    <th style="border: 1px solid #ddd; padding: 10px; text-align: left; background-color: #f0f0f0;">Name</th>
+                    <th style="border: 1px solid #ddd; padding: 10px; text-align: left; background-color: #f0f0f0;">Contact Name</th>
+                    <th style="border: 1px solid #ddd; padding: 10px; text-align: left; background-color: #f0f0f0;">Phone</th>
+                    <th style="border: 1px solid #ddd; padding: 10px; text-align: left; background-color: #f0f0f0;">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <c:forEach var="supplier" items="${suppliers}">
+                    <tr>
+                        <td style="border: 1px solid #ddd; padding: 10px;"></td>
+                        <td style="border: 1px solid #ddd; padding: 10px;"></td>
+                        <td style="border: 1px solid #ddd; padding: 10px;"></td>
+                        <td style="border: 1px solid #ddd; padding: 10px;"></td>
+                        <td style="border: 1px solid #ddd; padding: 10px;">
+                            <a href="/admin/suppliers/edit/${supplier.id}" style="color: #4CAF50; text-decoration: none; margin-right: 10px;">Edit</a>
+                            <a href="/admin/suppliers/delete/${supplier.id}" style="color: #f44336; text-decoration: none;">Delete</a>
+                        </td>
+                    </tr>
+                </c:forEach>
+            </tbody>
+        </table>
+        <form action="/admin/suppliers/search" method="get" style="margin-top: 20px; display: flex; justify-content: space-between; align-items: center;">
+            <input type="text" name="keyword" placeholder="Search Suppliers" style="flex: 1; padding: 10px; border: 1px solid #ccc; border-radius: 5px; margin-right: 10px;">
+            <button type="submit" style="background-color: #4CAF50; color: #fff; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">Search</button>
+        </form>
+    </div>
+</body>
+</html>

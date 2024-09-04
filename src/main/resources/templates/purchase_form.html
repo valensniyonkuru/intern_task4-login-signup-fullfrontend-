@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add/Edit Purchase</title>
+</head>
+<body>
+    <div style="max-width: 600px; margin: 40px auto; padding: 20px; background-color: #f9f9f9; border: 1px solid #ccc; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+        <h2 style="margin-top: 0;">Add/Edit Purchase</h2>
+        <form action="#" method="post" style="display: flex; flex-direction: column;">
+            <div style="margin-bottom: 20px;">
+                <label for="product" style="display: block; margin-bottom: 10px;">Product:</label>
+                <select id="product" name="product" required style="width: 100%; padding: 10px; border: 1px solid #ccc;">
+                    <c:forEach var="product" items="${products}">
+                        <option value="${product.id}" ${purchase.product.id == product.id ? 'selected' : ''}></option>
+                    </c:forEach>
+                </select>
+            </div>
+            <div style="margin-bottom: 20px;">
+                <label for="supplier" style="display: block; margin-bottom: 10px;">Supplier:</label>
+                <select id="supplier" name="supplier" required style="width: 100%; padding: 10px; border: 1px solid #ccc;">
+                    <c:forEach var="supplier" items="${suppliers}">
+                        <option value="${supplier.id}" ${purchase.supplier.id == supplier.id ? 'selected' : ''}></option>
+                    </c:forEach>
+                </select>
+            </div>
+            <div style="margin-bottom: 20px;">
+                <label for="quantity" style="display: block; margin-bottom: 10px;">Quantity:</label>
+                <input type="number" id="quantity" name="quantity" value="${purchase.quantity}" required style="width: 100%; padding: 10px; border: 1px solid #ccc;">
+            </div>
+            <div style="margin-bottom: 20px;">
+                <label for="price" style="display: block; margin-bottom: 10px;">Price:</label>
+                <input type="number" id="price" name="price" value="${purchase.price}" required style="width: 100%; padding: 10px; border: 1px solid #ccc;">
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <button type="submit" style="background-color: #4CAF50; color: #fff; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">Save</button>
+                <a href="/admin/purchases" style="background-color: #f0f0f0; color: #333; padding: 10px 20px; border: 1px solid #ccc; border-radius: 5px; text-decoration: none;">Back to Purchase List</a>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
